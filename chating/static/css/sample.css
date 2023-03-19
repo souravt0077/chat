@@ -1,0 +1,7 @@
+list:hover{
+    background-color:darkslategray;
+    color:white;
+  }
+#pic{
+  border-radius: 50%;
+}

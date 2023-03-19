@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block title %}Update room{% endblock title %}
+
+{% block content %}
+<style>
+#update{
+    display:grid;
+    place-items:center;    
+    padding:15%      
+}
+body{
+    background-color:black;
+}
+</style>
+<br>
+<div id='update'>
+    <h1 class='text-white'>Update "{{rooms.name}}"</h1>
+    <br>
+    <form method='POST' action=''>
+        {% csrf_token %}
+        {{form.as_p}}
+        <a href={{request.META.HTTP_REFERER}} class='btn btn-sm btn-outline-light'>Back</a>
+        <input type='submit' value='update' class='btn btn-sm btn-primary' />
+    </form>
+
+</div>
+{% endblock content %}

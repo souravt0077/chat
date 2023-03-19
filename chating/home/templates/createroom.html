@@ -1,0 +1,50 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Create Room{% endblock title %}
+
+{% block content %}
+<style>
+    #create{
+     margin-top:15%
+    }
+    body{
+     background-color:cadetblue;
+    }
+    a{
+        text-decoration:none;
+        color:black;
+    }
+ </style>
+ 
+
+
+ {% if request.user.is_authenticated %}
+  <div class='row'>
+    <div class='col-6 container-sm text-center bg-light p-5' id='create'>
+        <h1>Create Room </h1>
+        <br>
+        <form class='container-sm' method='POST' action=''>
+            {% csrf_token %}
+            {{form.name}}<br>
+            {{form.password}}
+            <br>
+            <a class='btn btn-sm btn-outline-secondary' href={{request.META.HTTP_REFERER}}>Back</a>
+            <input class='btn btn-sm btn-secondary' type='submit' value='Create' />
+        </form>
+        <br>
+        <p>Do you want t see the <mark><a href={% url 'available_rooms' %}>Available rooms</a></mark></p>
+    </div>
+    <div class='col-6 bg-light container-sm' id='create'>
+        <img class='container-sm' src={% static 'images/createroom.png' %} height='350' />
+    </div>
+
+</div>
+{% else %}
+<div class="alert alert-info alert-dismissible fade show mt-5 " role="alert">
+    <h4 class="alert-heading">Alert!</h4>
+    <p>You must login for yousing this page...please <a class='btn btn-sm btn-primary' href={% url 'login' %}>Login</a></p>
+  </div>
+{% endif %}
+
+
+{% endblock content %}

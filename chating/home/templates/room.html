@@ -1,0 +1,83 @@
+{% extends 'main.html' %}
+
+{% block title %}{{rooms.name}}{% endblock title %}
+
+{% block content %}
+<style>
+    {% comment %} body{
+        background-color:darkslategrey;
+        color:white;
+    } {% endcomment %}
+    #parent{
+        display:grid;
+        place-items:left;    
+        padding:10%             
+    }
+    body{
+        background-color:rgb(42, 96, 96);
+    }
+    a{
+        text-decoration:none;
+        color:red;
+    }
+   
+</style>
+{% if messages %}
+ {% for message in messages %}
+ <div class="alert alert-success alert-dismissible fade show pt-1" role="alert">
+     <h4 class="alert-heading text-center">{{message}}</h4>
+     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+ </div>
+ {% endfor %}
+{% endif %}
+
+<div class='text-white text-center bg-danger  '>
+    <h1>{{rooms.name}} 
+        <br>
+        {% if request.user == rooms.user %}
+        <a class='btn btn-sm btn-light' href={% url 'updateroom' rooms.id %}><i class="bi bi-pencil-fill"></i> Update</a>
+        <a class='btn btn-sm btn-light' href={% url 'deleteroom' rooms.id %}><i class="bi bi-trash3"></i> Delete</a>
+        {% endif %}
+    </h1>
+    <small>created {{rooms.created|timesince}} ago </small><br>
+    <small>Host by {{rooms.user}} </small>
+    
+</div>
+<div id='parent'>
+    <div>
+        {% for message in room_messages %}
+            {% if message.user == request.user %}
+            <div class="card text-end bg-light">
+                <div class="card-body">
+                    <small>from <a href={% url 'profile' message.user.id %}>{{message.user}}</a> {{message.created|time}}</small><br>
+                    <div class='text-start'>
+                        <b>{{message.body}}</b>
+                    </div>
+                    <a href={% url 'deletemessage' message.id %}><i class="bi bi-trash3"></i></a>
+                </div>
+            </div>
+            <br>
+            {% else %}
+            <div class="card text-start bg-black text-white">
+                <div class="card-body ">
+                    <small>from <a href={% url 'profile' message.user.id %}>{{message.user}}</a> {{message.created|time}}</small><br>
+                    <div class='text-start'>
+                        <b>{{message.body}}</b><br>
+                    </div>
+                </div>
+            </div>
+            <br>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <div class='fixed-bottom container mb-3'>
+        <form method='POST' action=''>
+            {% csrf_token %}
+            <input type='text' name='body' class='form-control' placeholder='Type here...' />
+        </form>
+    </div>
+    
+</div>
+
+{% endblock content %}

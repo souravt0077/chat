@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg bg-dark sticky-top" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href={% url 'home' %}><h1>Chat <i class="bi bi-chat-square-quote"></i></h1></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"><h1><i class="bi bi-caret-down-fill"></i></h1></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href={% url 'home' %}>Home</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Rooms
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item btn btn-outline-secondary" href={% url 'createroom' %}>Create</a></li>
+              <li><a class="dropdown-item" href={% url 'available_rooms' %}>Available Rooms</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href={% url 'ask' %}>Ask me any doubt</a></li>
+            </ul>
+          </li>
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'profile' request.user.id %}>Profile</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link disabled" href={% url 'profile' request.user.id %}>Profile</a>
+          </li>
+          {% endif %}
+
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'logout' %}>Logout</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'login' %}>login</a>
+          </li>
+          {% endif %}
+          <li class="nav-item">
+            <a class="nav-link" href={% url 'chatusers' %}>Users</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+  </nav>

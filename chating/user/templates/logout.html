@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+
+{% block title %}Are you sure ?{% endblock title %}
+
+{% block content %}
+<style>
+   #logout{
+    margin-top:18%
+   }
+   body{
+    background-color:black;
+   }
+</style>
+    <div class='text-center shadow-lg p-5 bg-light' id='logout'>
+    <form method='POST' action=''>
+        {% csrf_token %}
+        <h4>Do you want <mark>Logout</mark> {{request.user.username}} ?</h4>
+        <p>Are you sure ?</p>
+        <a class='btn btn-sm btn-outline-secondary' href={{request.META.HTTP_REFERER}}>No</a>
+        <input class='btn btn-sm btn-secondary' type='submit' value='confirm' />
+
+    </form>
+    </div>
+<div>
+{% endblock content %}

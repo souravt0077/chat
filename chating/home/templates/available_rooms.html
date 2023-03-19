@@ -1,0 +1,67 @@
+{% extends 'main.html' %}
+
+{% block title %}Available Rooms{% endblock title %}
+
+{% block content %}
+
+<style>
+    a{
+        text-decoration:none;
+        color:black;
+    }
+    #list:hover{
+      background-color:darkolivegreen;
+      color:white;
+    }
+    #search{
+      margin-left:20%;
+    }
+    body{
+      background-color:black;
+    }
+</style>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <h4 class="alert-heading">Well done!</h4>
+        <p>{{message}}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+ {% endif %}
+ {% if request.user.is_authenticated %}
+<div class='text-center bg-light mt-2 shadow-lg'>
+    <h1>Rooms Available </h1>
+    <br>
+    <div id='search'>
+      <form class="d-flex container" role="search" method='GET' action="">
+        <input class="form-control me-2" type="search" name='q' placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    <hr>
+    {% for room in rooms %}
+    <div class="list-group pe-5 ps-5 " >
+        <a href={% url 'room_password' room.id %} class="list-group-item list-group-item-action shadow" id='list'>
+          <div class="d-flex w-100 justify-content-between "  >
+            <h5 class="mb-1  ">{{room}}</h5>
+            <small >{{room.created|timesince}}</small>
+            
+          </div>
+        </a>
+        <br>
+      </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-info alert-dismissible fade show mt-5 " role="alert">
+      <h4 class="alert-heading">Alert!</h4>
+      <p>You must login for yousing this page...please <a class='btn btn-sm btn-primary' href={% url 'login' %}>Login</a></p>
+    </div>
+    {% endif %}
+
+
+
+
+
+</div>
+{% endblock content %}

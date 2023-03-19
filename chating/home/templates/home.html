@@ -1,0 +1,77 @@
+{% extends 'main.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+{% load static %}
+<style>
+   #img{
+    display:grid;
+    place-items:center;
+   }
+</style>
+
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <h4 class="alert-heading">Well done!</h4>
+            <p>{{message}}</p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    {% endfor %}
+{% endif %}
+
+{% comment %} curosel {% endcomment %}
+<div id="carouselExampleAutoplaying" class="carousel slide mt-5 bg-light" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active " id='bg'>
+        <h1 class='text-center'>Welcome to Chat <i class="bi bi-chat-square-quote"></i> </h1>
+        <br>
+        <div class='container-sm row p-5'>
+            <div class='col-6' id='img'>
+                <img src={% static 'images/chat2.png' %} class="d-block w-50"  alt="...">
+            </div>
+            <div class='col-6'>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+                <a href={% url 'createroom' %} class='btn btn-sm btn-outline-success'>Create Room</a>
+            </div>
+        </div>
+      </div>
+      <div class="carousel-item ">
+        <img src={% static 'images/chating.png' %} class="d-block w-50 container" alt="chating">
+        <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i></h1>
+        <hr>
+        <br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+      </div>
+      <div class="carousel-item">
+        {% comment %} <img src="..." class="d-block w-100" alt="..."> {% endcomment %}
+        <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i></h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+        <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i> </h1>
+        <hr>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+{% comment %} curosel end {% endcomment %}
+<br>
+<div class='bg-info p-5'>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
+</div>
+{% endblock content %}

@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+{% block title %}Doubts{% endblock title %}
+
+{% block content %}
+<style>
+    body{
+        background-color:darkslategray;
+        color:white;
+    }
+</style>
+<div class='text-center'>
+    <h1>Ask Any Doubts</h1>
+    <small>Related to rooms</small>
+</div>
+<div>
+    <p>
+        <h3>There are some common doubts</h3><br>
+        <ul>
+            <li><b>How to create room</b></li>
+            <p>
+                step 1:
+                go to navigation bar<br>
+                step 2:
+                click on Rooms<br>
+                step 3:
+                click on Creteroom<br>
+                step 4:
+                Enter room name and password<br>
+                (you can enter room without password but others need)
+            </p>
+            <li><b>How much rooms can create a single person ?</b></li>
+                <p>There is no limit</p>
+            <li><b>Can i sent personal message</b></li>
+            <p>Sorry now it is not possible but it will possible soon we are working on it</p>
+            <li><b>Is this free ?</b></li>
+            <p>Ofcourse.it is absolutly free and without add</p>
+          
+        </ul>
+    </p>
+    <div class='text-center'>
+        <h3>Any other doubts/suggesstions ?</h3>
+        <p>Please inform us your doubt / suggession
+         <b>We will contact you</b></p>
+         <br>
+        <form method='POST'>
+            {% csrf_token %}
+            <input type='text' name='body' class='form-control' placeholder='text here...' />
+            <br>
+            <input type='submit' value='Submit' class='form-control btn btn-outline-primary'/>
+        </form>
+    </div>
+</div>
+{% endblock content %}
