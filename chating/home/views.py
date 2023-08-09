@@ -43,7 +43,7 @@ def room(request,pk):
     rooms=Rooms.objects.get(id=pk)
     room_messages=rooms.message_set.all()
     if request.method =='POST':
-        message=Message.objects.create(
+        Message.objects.create(
             user=request.user,
             rooms=rooms,
             body=request.POST.get('body')
@@ -92,7 +92,7 @@ def deleteMessage(request,pk):
     if request.method == 'POST':
         message.delete()
         return redirect('room',pk=message.rooms.id)
-    context={'obj':message}
+    context={'obj':message.body}
     return render(request,'delete.html',context)
 
 # doubts

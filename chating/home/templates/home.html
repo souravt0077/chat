@@ -9,6 +9,9 @@
     display:grid;
     place-items:center;
    }
+   #text{
+    font-size:1vw;
+   }
 </style>
 
 
@@ -30,16 +33,16 @@
         <br>
         <div class='container-sm row p-5'>
             <div class='col-6' id='img'>
-                <img src={% static 'images/chat2.png' %} class="d-block w-50"  alt="...">
+                <img src={% static 'images/chat2.png' %} class="d-block w-100"  alt="...">
             </div>
-            <div class='col-6'>
+            <div class='col-6' id='text'>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
                 <a href={% url 'createroom' %} class='btn btn-sm btn-outline-success'>Create Room</a>
             </div>
         </div>
       </div>
-      <div class="carousel-item ">
+      <div class="carousel-item " id='text'>
         <img src={% static 'images/chating.png' %} class="d-block w-50 container" alt="chating">
         <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i></h1>
         <hr>
@@ -47,14 +50,12 @@
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
       </div>
-      <div class="carousel-item">
+      <div class="carousel-item" id='text'>
         {% comment %} <img src="..." class="d-block w-100" alt="..."> {% endcomment %}
         <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i></h1>
         <hr>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
-        <h1>Welcome to Chat <i class="bi bi-chat-square-quote"></i> </h1>
-        <hr>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
       </div>
@@ -70,7 +71,7 @@
   </div>
 {% comment %} curosel end {% endcomment %}
 <br>
-<div class='bg-info p-5'>
+<div class='bg-info p-5' id='text'>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error iusto tempora vero sapiente obcaecati natus ipsum adipisci voluptatibus recusandae. Reprehenderit, tenetur, eos asperiores nobis, ipsam fugit eligendi provident deserunt earum maxime facere neque itaque doloremque sunt reiciendis voluptate quos dignissimos soluta quidem? Quas repellendus ex temporibus placeat perferendis, suscipit aspernatur!</p>
 </div>
